@@ -168,3 +168,20 @@ export const getXAxisValues = (data, type) => {
   }
   return yAxisValues;
 };
+
+const lastPeriodStartDate = '2022-05-20';
+const periodAvgDuration = 28;
+
+const menstrualCycleData = (type = 'week') => {
+  const estrogenData = [];
+
+  const today = dayjs();
+
+  const menstrualCycleMedium = periodAvgDuration / 2;
+
+  const [lastPeriodStartDate] = 2;
+  const ovulationDate = dayjs(lastPeriodStartDate).add(
+    menstrualCycleMedium,
+    'day',
+  );
+};

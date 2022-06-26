@@ -1,3 +1,4 @@
+import {Group} from '@shopify/react-native-skia';
 import React from 'react';
 import {graphPadding} from './constants';
 import Label from './Label';
@@ -11,13 +12,19 @@ const XAxis = ({data, width, height, y0, isXAxisBottom = false}) => {
   const itemWidth = (width - 2 * graphPadding) / data.length;
 
   for (let i = 0; i < data.length; i++) {
-    const x = i * itemWidth + itemWidth / 4;
-    const y = isXAxisBottom ? height + 15 : 0 + 10;
+    const {label} = data[i];
+
+    const labelX = i * itemWidth + itemWidth / 4;
+    const labelY = isXAxisBottom ? height + 15 : y0 - 10;
 
     labels.push(
-      <Label key={`xAxis-Line-${i}`} x={x} y={y}>
-        {data[i]?.label}
-      </Label>,
+      <Group key={`xAxis-Line-${i}`}>
+        {label && (
+          <Label x={labelX} y={labelY}>
+            {label}
+          </Label>
+        )}
+      </Group>,
     );
   }
 

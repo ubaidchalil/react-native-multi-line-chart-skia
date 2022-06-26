@@ -42,7 +42,7 @@ export const createGraphPoints = ({
   const min = minValue - diff;
 
   for (let i = 0; i < graphData.length; i += 1) {
-    const {value, displayDot} = graphData[i];
+    const {value, displayDot, subLabelProps, displayMarkLine} = graphData[i];
     if (!value) {
       continue;
     }
@@ -50,7 +50,7 @@ export const createGraphPoints = ({
     const x = itemWidth * i + itemWidth / 2;
     let y = y0 + height - ((value - min) / (max - min)) * height;
 
-    points.push({x: x, y: y, displayDot});
+    points.push({x: x, y: y, displayDot, subLabelProps, displayMarkLine});
   }
 
   return points;

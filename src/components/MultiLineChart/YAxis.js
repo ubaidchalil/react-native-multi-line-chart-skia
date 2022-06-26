@@ -28,7 +28,6 @@ const YAxis = ({min, max, y0}) => {
 
 const styles = StyleSheet.create({
   yAxisArea: {
-    height: 220 - 20,
     marginLeft: 5,
     justifyContent: 'space-between',
     alignItems: 'flex-end',

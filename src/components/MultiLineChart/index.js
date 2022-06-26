@@ -35,7 +35,12 @@ const getToolTipData = (data, selectedIndex) => {
   return toolTipData;
 };
 
-const MultiLineChart = ({graphData, isXAxisBottom = false, xAxisValues}) => {
+const MultiLineChart = ({
+  graphData,
+  isXAxisBottom = false,
+  xAxisValues,
+  hasSubLabel = true,
+}) => {
   const tooltipLineRef = useRef();
   const tooltipAreaRef = useRef();
 
@@ -46,7 +51,7 @@ const MultiLineChart = ({graphData, isXAxisBottom = false, xAxisValues}) => {
 
   const {gesture, x, isActive} = useTapGesture();
 
-  const height = componentHeight - xAxisAreaHeight;
+  const height = componentHeight - (xAxisAreaHeight + (hasSubLabel ? 20 : 0));
 
   const {min: minValue, max: maxValue} = useMemo(
     () =>
@@ -63,7 +68,7 @@ const MultiLineChart = ({graphData, isXAxisBottom = false, xAxisValues}) => {
 
   const firstData = useMemo(() => data?.[0]?.item, [data]);
 
-  const y0 = isXAxisBottom ? 0 : xAxisAreaHeight;
+  const y0 = isXAxisBottom ? 0 : xAxisAreaHeight + (hasSubLabel ? 20 : 0);
 
   const setFingerX = useCallback(
     (fingerX, active) => {

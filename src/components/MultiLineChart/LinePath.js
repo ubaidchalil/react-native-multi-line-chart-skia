@@ -108,7 +108,7 @@ const LinePath = ({data, height, width, minValue, maxValue, y0, color}) => {
         strokeCap="round"
         color={color}
       />
-      <Dots points={points} color={color} />
+      <Dots points={points} color={color} height={height} y0={y0} />
     </Group>
   );
 };

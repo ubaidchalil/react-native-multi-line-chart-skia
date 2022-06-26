@@ -15,7 +15,7 @@ const Container = ({children, width, height, xAxisLabel, onLayout, y0}) => {
             y={y0 + 1}
             width={width - 2}
             height={height - 2}
-            r={25}
+            r={5}
             strokeWidth={1}
             style="stroke"
             color="#F1F5F8">
